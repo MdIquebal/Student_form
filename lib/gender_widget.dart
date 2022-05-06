@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:student_info/form_widgets.dart';
 
 class GenderWidget extends StatefulWidget {
-  const GenderWidget({Key? key}) : super(key: key);
 
   @override
   State<GenderWidget> createState() => _GenderWidgetState();
@@ -18,7 +17,7 @@ class _GenderWidgetState extends State<GenderWidget> {
         SizedBox(
           height: 10,
         ),
-        Text('Gender:'),
+        Text('Gender'),
         RadioListTile<String>(
           title: const Text('Male'),
           value: 'Male',

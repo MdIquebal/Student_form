@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 String name = '';
 String father = '';
 String mother = '';
@@ -9,15 +8,13 @@ String birthDate = '';
 String gender = '';
 String religion = '';
 String nationality = '';
-//String email = '';
 String study = '';
 String presAddress = '';
 String perAddress = '';
 String phoneNumber = '';
-
+String email = '';
 
 final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-
 
 Widget buildName() {
   return TextFormField(
@@ -63,25 +60,6 @@ Widget buildMother() {
     },
     onSaved: (String? value) {
       mother = value!;
-    },
-  );
-}
-
-
-
-
-Widget buildReligion() {
-  return TextFormField(
-    decoration: InputDecoration(labelText: 'Religion'),
-    validator: (String? value) {
-      if (value!.isEmpty) {
-        return 'Religion is Required';
-      }
-
-      return null;
-    },
-    onSaved: (String? value) {
-      religion = value!;
     },
   );
 }
@@ -136,28 +114,6 @@ Widget buildBirthDate() {
   );
 }
 
-// Widget buildEmail() {
-//   return TextFormField(
-//     decoration: InputDecoration(labelText: 'Email'),
-//     validator: (String? value) {
-//       if (value!.isEmpty) {
-//         return 'Email is Required';
-//       }
-
-//       if (!RegExp(
-//               r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
-//           .hasMatch(value)) {
-//         return 'Please enter a valid email Address';
-//       }
-
-//       return null;
-//     },
-//     onSaved: (String? value) {
-//       email = value!;
-//     },
-//   );
-// }
-
 Widget buildStudy() {
   return TextFormField(
     decoration: InputDecoration(labelText: 'Class'),
@@ -177,7 +133,9 @@ Widget buildStudy() {
 
 Widget buildPresAddress() {
   return TextFormField(
-    decoration: InputDecoration(labelText: 'Present Address', ),
+    decoration: InputDecoration(
+      labelText: 'Present Address',
+    ),
     keyboardType: TextInputType.text,
     maxLines: 3,
     validator: (String? value) {
@@ -192,6 +150,7 @@ Widget buildPresAddress() {
     },
   );
 }
+
 Widget buildPerAddress() {
   return TextFormField(
     decoration: InputDecoration(labelText: 'Permanent Address'),
@@ -227,4 +186,24 @@ Widget buildPhoneNumber() {
   );
 }
 
+Widget buildEmail() {
+  return TextFormField(
+    decoration: InputDecoration(labelText: 'Email'),
+    validator: (String? value) {
+      if (value!.isEmpty) {
+        return 'Email is Required';
+      }
 
+      if (!RegExp(
+              r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
+          .hasMatch(value)) {
+        return 'Please enter a valid email Address';
+      }
+
+      return null;
+    },
+    onSaved: (String? value) {
+      email = value!;
+    },
+  );
+}
